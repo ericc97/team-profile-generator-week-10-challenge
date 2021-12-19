@@ -1,2 +1,10 @@
-var fs = require('fs');
-var inquirer = require('inquirer');
+const fs = require('fs');
+const {getUserInput} = require('./src/utils');
+
+
+const init = () => {
+    getUserInput()
+}
+
+
+init()

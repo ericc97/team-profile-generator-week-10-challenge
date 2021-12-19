@@ -1,0 +1,3 @@
+const employeeTemplate = (data) => {
+    
+}
