@@ -5,7 +5,6 @@ var inquirer = require('inquirer');
 
 
 // require lib files
-var Employee = require('../lib/employee');
 var Intern = require('../lib/intern');
 var Manager = require('../lib/engineer');
 var Engineer = require('../lib/manager');
@@ -30,7 +29,7 @@ const addAnIntern = () => {
             name: 'id',
             message: "What is the Engineer's id number?",
             validate: answer => {
-                if (answer === Number){
+                if (answer === 'Number'){
                     return 'Please enter a Id number'
                 }
                 return true;
@@ -56,7 +55,7 @@ const addAnIntern = () => {
         }        
     ]) .then(answers => {
         const {name, id, email, uni} = answers;
-        let newIntern = new Employee(name, id, email, uni);
+        let newIntern = new Engineer(name, id, email, uni);
         employeeDb.push(newIntern);
         getUserInput();
 
@@ -79,7 +78,7 @@ const addAnEngineer = () => {
             name: 'id',
             message: "What is the Engineer's id number?",
             validate: answer => {
-                if (answer ===Number){
+                if (answer === 'Number'){
                     return 'Please enter a Id number'
                 }
                 return true;
@@ -105,7 +104,7 @@ const addAnEngineer = () => {
         }        
     ]) .then(answers => {
         const {name, id, email, git} = answers;
-        let newEngineer = new Employee(name, id, email, git);
+        let newEngineer = new Intern(name, id, email, git);
         employeeDb.push(newEngineer);
         getUserInput();
 
@@ -128,7 +127,7 @@ const addAnManager = () => {
             name: 'id',
             message: "What is the Manager's id number?",
             validate: answer => {
-                if (answer === Number){
+                if (answer === 'Number'){
                     return 'Please enter a Id number'
                 }
                 return true;
@@ -146,7 +145,7 @@ const addAnManager = () => {
             name: 'officeNum',
             message: "What is the Manager's office number?",
             validate: answer => {
-                if (answer === Number){
+                if (answer === 'Number'){
                     return 'Please enter an office number'
                 }
                 return true;
@@ -154,7 +153,7 @@ const addAnManager = () => {
         }        
     ]) .then(answers => {
         const {name, id, email, officeNum} = answers;
-        let newManager = new Employee(name, id, email, officeNum);
+        let newManager = new Manager(name, id, email, officeNum);
         employeeDb.push(newManager);
         getUserInput();
 
@@ -163,14 +162,13 @@ const addAnManager = () => {
 
 const getUserInput = () => {
     inquirer
-        .prompt([
-        {
+        .prompt({
+        
             type: 'list',
             message: 'What type of employee would you like to add?',
             choices: ['Add an Intern', 'Add an Engineer', 'Add a manager', 'Done'],
-        },
-        
-    ]) .then(({ choices }) => {
+    }) 
+    .then(({ choices }) => {
         switch (choices) {
             case "Add an Intern":
                 addAnIntern()
@@ -183,6 +181,8 @@ const getUserInput = () => {
             case "Add a Manager":
                 addAnManager()
                 return 'Add a new Manager selected'
+            default:
+                process.exit()
         }
     })
 }
