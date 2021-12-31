@@ -6,13 +6,13 @@ const employeeTemplate = (data) => {
         return `
         <div class=" shadow-2xl h-80 w-72">
             <div class="text-2xl border text-white bg-blue-400 p-4">
-                <h2> ${employees.name}</h2>
+                <h2>${employees.name}</h2>
                 <h3>${employees.role}</h3>
             </div>
             <div class=" m-4 mt-10 leading-8">
                 <p class="border border-gray p-2">Id: ${employees.id}</p>
-                <p class="border border-gray p-2">Email: <a href="${employees.email}" ${employees.email}</a></p>
-                <p class="border border-gray p-2">GitHub Username: <a href="https://github.com/${employees.git}"></a>${employees.git}</p>
+                <p class="border border-gray p-2">Email: <a href="mailto:${employees.email}" target="_blank">${employees.email}</p></a>
+                <p class="border border-gray p-2">GitHub Username: <a href="https://github.com/${employees.git}" target="_blank">${employees.git}</p></a>
             </div>
         </div>
             `
@@ -21,12 +21,12 @@ const employeeTemplate = (data) => {
         return `
         <div class=" shadow-2xl h-80 w-72">
             <div class="text-2xl border text-white bg-blue-400 p-4">
-                <h2>Name: ${employees.name}</h2>
-                <h3>Title: ${employees.role}</h3>
+                <h2>${employees.name}</h2>
+                <h3>${employees.role}</h3>
             </div>
             <div class=" m-4 mt-10 leading-8">
                 <p class="border border-gray p-2">Id: ${employees.id}</p>
-                <p class="border border-gray p-2">Email: <a href="${employees.email}" ${employees.email}</a></p>
+                <p class="border border-gray p-2">Email: <a href="mailto:${employees.email}"target="_blank">${employees.email}</p></a>
                 <p class="border border-gray p-2">School: ${employees.uni}</p>
             </div>
         </div>
@@ -36,12 +36,12 @@ const employeeTemplate = (data) => {
         return `
         <div class=" shadow-2xl h-80 w-72">
             <div class="text-2xl border text-white bg-blue-400 p-4">
-                <h2>Name: ${employees.name}</h2>
-                <h3>Title: ${employees.role}</h3>
+                <h2>${employees.name}</h2>
+                <h3>${employees.role}</h3>
             </div>
             <div class=" m-4 mt-10 leading-8">
                 <p class="border border-gray p-2">Id: ${employees.id}</p>
-                <p class="border border-gray p-2">Email: <a href="${employees.email}" ${employees.email}</a></p>
+                <p class="border border-gray p-2">Email: <a href="mailto:${employees.email}"target="_blank">${employees.email}</p></a>
                 <p class="border border-gray p-2">Office Number: ${employees.officeNum}</p>
             </div>
         </div>
@@ -61,7 +61,7 @@ const employeeTemplate = (data) => {
     </head>
     <body>
     <header class="bg-red-500 flex justify-center items-center h-40 w-auto text-5xl text-white">Meet My Team</header>
-    <div class="flex p-8 justify-evenly grid-rows-2">
+    <div class="flex p-8 justify-evenly grid-rows-3">
     ${html.join("")}
     </div>
     

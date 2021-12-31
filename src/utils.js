@@ -65,7 +65,7 @@ const addAnIntern = () => {
         employeeDb.push(newIntern);
         console.log(newIntern);
         getUserInput();
-        console.log(answers);
+        
 
     });
 }
@@ -121,7 +121,7 @@ const addAnEngineer = () => {
         let newEngineer = new Engineer(name, id, email, git);
         employeeDb.push(newEngineer);
         getUserInput();
-        console.log(answers);
+       
 
     });
 }
@@ -177,7 +177,7 @@ const addAnManager = () => {
         let newManager = new Manager(name, id, email, officeNum);
         employeeDb.push(newManager);
         getUserInput();
-        console.log(answers);
+        
 
     });
 
